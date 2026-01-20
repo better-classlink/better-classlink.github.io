@@ -139,10 +139,9 @@ function getDayMonthYear(){
     document.documentElement.style.setProperty(`--${item}`, localStorage.getItem(item))
     }   
         async function runOnLoad(){
-            if(localStorage.getItem('bccSliderSpeed') == `null`){
+            if(localStorage.getItem('bccSliderSpeed') == null){
                 localStorage.setItem('bccSliderSpeed', 50)
             }
-            defineDefault('bccSliderSpeed', '100')
             defineDefault('bccPrimaryTopHeader', '#000000')
             defineDefault('bccHeaderBackgroundColor', '#FFFFFF')
             defineDefault('bccPrimaryHeader', '#000000')
@@ -274,6 +273,7 @@ function getDayMonthYear(){
         }
 
     }
+
 
 
 
