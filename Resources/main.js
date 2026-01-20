@@ -125,14 +125,12 @@ function getDayMonthYear(){
                 document.getElementById(item).value = localStorage.getItem(item)
             }
             }
-            console.log(`Item type: ${document.getElementById(item).value}`)
             if(document.getElementById(item).type == 'color'){
             document.getElementById(item).addEventListener('input', function (){
             localStorage.setItem(this.id, this.value)
             })
         }
         if(document.getElementById(item).type == 'text'){
-            console.log(`Setting css variable --${item}`)
             document.getElementById(item).value = localStorage.getItem(item)
             document.getElementById(item).addEventListener('input', function (){
                 localStorage.setItem(this.id, this.value)
@@ -276,6 +274,7 @@ function getDayMonthYear(){
         }
 
     }
+
 
 
 
