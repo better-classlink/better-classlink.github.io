@@ -117,7 +117,8 @@ function getDayMonthYear(){
         async function defineDefault(item, defaultType){
             if(localStorage.getItem(item) == null){
                 localStorage.setItem(item, defaultType)
-            document.getElementById(item).value = defaultType
+                if(item != 'bccSliderSpeed')}
+            document.getElementById(item).value = defaultType}
             }
             else{
                 if(item != 'bccSliderSpeed'){
@@ -275,6 +276,7 @@ function getDayMonthYear(){
         }
 
     }
+
 
 
 
