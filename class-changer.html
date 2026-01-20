@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function defineDefault(item){
+            document.documentElement.style.setProperty(`--${item}`, localStorage.getItem(item))
+        }
+    </script>
+<style>
+    h1{
+        color: var(--bccPrimaryHeader)
+    }
+    .inputClass{
+        background-color: var(--bccButtonPrimary); /* Green background */
+         color: var(--bccButtonSecondary); /* White text */
+          padding: 10px 20px; /* Spacing inside the button */
+         border: 5x; /* No border */
+         border-radius: 5px; /* Rounded corners */
+          cursor: pointer; /* Changes cursor to a hand on hover */
+          font-size: 16px; /* Text size */
+          font-family: 'kamiiFonts'; /* Font style */
+          transition: background-color 0.3s ease; /* Smooth transition on hover */
+          width: 450px;
+    }
+    .inputClass2{
+        background-color: var(--bccButtonSecondary); /* Green background */
+         color: var(--bccButtonPrimary); /* White text */
+          padding: 10px 20px; /* Spacing inside the button */
+         border: 5x; /* No border */
+         border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Changes cursor to a hand on hover */
+          font-size: 16px; /* Text size */
+          font-family: 'kamiiFonts'; /* Font style */
+          transition: background-color 0.3s ease; /* Smooth transition on hover */
+          width: 450px;
+    }
+    html{
+        /* background-color: gray; */
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background-position: center; */
+    }
+    .TopHeader{
+        font-family: "kamiiFonts", sans-serif;
+        color: var(--bccPrimaryHeader);
+        background-color: var(--bccHeaderBackgroundColor);
+        border: 5px solid black;
+        border-radius: 5px;
+    }
+       @font-face {
+        font-family: kamiiFonts;
+        src: url(Resources/StackSansText-VariableFont_wght.ttf);
+    }
+    .containerforbuttons{
+        font-family: 'kamiiFonts', sans-serif;
+        font-size: 45px;
+        position: relative;
+        top: -20px;
+        color: var(--bccPrimaryHeader) !important;
+        border: 0px !important;
+        background-color: var(--bccHeaderBackgroundColor) !important;
+        border-radius: 4px;
+    }
+    .classButton{
+        background-color: var(--bccButtonPrimary); /* Green background */
+         color: var(--bccButtonSecondary); /* White text */
+          padding: 10px 20px; /* Spacing inside the button */
+         border: none; /* No border */
+         border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Changes cursor to a hand on hover */
+          font-size: 16px; /* Text size */
+          font-family: 'kamiiFonts'; /* Font style */
+          transition: background-color 0.3s ease; /* Smooth transition on hover */
+          margin-top: 12px;
+    }
+     .classButton2{
+        background-color: var(--bccButtonSecondary); /* Green background */
+         color: var(--bccButtonPrimary); /* White text */
+          padding: 10px 20px; /* Spacing inside the button */
+         border: none; /* No border */
+         border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Changes cursor to a hand on hover */
+          font-size: 16px; /* Text size */
+          font-family: 'kamiiFonts'; /* Font style */
+          transition: background-color 0.3s ease; /* Smooth transition on hover */
+    }
+</style>
+    <body>
+        <div style="width: 600px;height:inherit;z-index: -23;position: absolute;color:var(--bccTopHeader)" id="theprettyone">
+        </div>
+        <h1 class="TopHeader">
+            Class and Button Changing Tool
+        </h1>
+    <div style="padding-bottom: 50px;">
+        <div class="containerforbuttons" style="color:var(--bccSecondaryHeader);font-size: 42px; border: 0px;" id="customButtons">Create Custom Buttons
+    </div>
+    <script>
+        function infinite(){
+            document.getElementById('theprettyone').style.bottom = 0
+        }
+        function customButtonCreator(){
+            let validity = true
+        if (document.getElementById("input2").value.includes('$')){
+            validity = false
+            alert('Names cannot include a "$".')
+        }  
+        if (document.getElementById("input2").value.includes('#')){
+            validity = false
+            alert('Names cannot include a "#".')
+        } 
+        if (document.getElementById("input2").value.includes('*')){
+            validity = false
+            alert('Names cannot include a "*".')
+        }   
+        if (document.getElementById("input1").value.includes('$')){
+            validity = false
+            alert('Links cannot include a "$".')
+        }  
+        if (document.getElementById("input1").value.includes('#')){
+            validity = false
+            alert('Links cannot include a "#"')
+        }  
+        if (document.getElementById("input1").value.includes('*')){
+            validity = false
+            alert('Links cannot include a "*"')
+        }  
+        if (validity)
+        {
+        alert('Reload your page for the effects to occur.')
+        if (localStorage.getItem('%customButtons') == null) 
+        {
+            localStorage.setItem('%customButtons', '$' + document.getElementById("input2").value + '#' + document.getElementById("input1").value + '*')
+        }
+        else
+        {
+            localStorage.setItem('%customButtons', localStorage.getItem('%customButtons') + '$' + document.getElementById("input2").value + '#' + document.getElementById("input1").value + '*')
+        }
+    }
+        }
+    </script>
+    <input type="text" name="Custom Button Link" class="inputClass" placeholder="Link (eg: google.com)" id="input1">
+    <input type="text" name="Custom Button Name" class="inputClass2" placeholder="Name (eg: Google)" id="input2">
+    <div style="color:transparent">if you read this ur gay</div>
+    <button class="classButton2" onclick="customButtonCreator()" style="margin-top: 0px;">Create New Button!</button>
+    <button class="classButton" onclick="removeLastButton()" style="margin-top: 0px;">Remove last button.</button>
+    <script>
+        function removeLastButton(){
+            let majorLocalStorage = localStorage.getItem('%customButtons')
+            let finalIdx = majorLocalStorage.lastIndexOf('$')
+            let newOutput = majorLocalStorage.slice(0, finalIdx)
+            localStorage.setItem('%customButtons', newOutput)
+            alert('Reload the main page for the effects to occur.')
+        }
+    </script>
+    <script>
+// $Skyward#skyward.iscorp.com/ComalISDTXSkySTS/Session/Signin?area=Home&controller=StudentAccess&action=Home*$Drive#drive.google.com*$Humanities Myth (again)#web.kamihq.com/web/viewer.html?state=%7B"ids"%3A%5B"1I0R
+    function destroySpecific(specific, unused){
+        console.log('asdasd')
+        fullObj = localStorage.getItem('%customButtons')
+        console.log('$' + specific + '#')
+        fullPack = '$' + specific + '#'
+        if(fullObj.includes('$' + specific + '#')){
+            // cool lets do stuff
+            console.log(fullObj.charAt(fullObj.indexOf(fullPack)))
+
+        }
+        else{
+            alert('Button Not Found')
+        }
+    }
+    </script>
+    <!-- <div class="containerforbuttons" style=" color: var(--bccPrimaryHeader);border: 0px;top: 6px">Advanced Button Removal</div> -->
+    <!-- <input type="text" name="Custom Button Link" class="inputClass" placeholder="Name of button to remove" id="input3" style="top:15px"> -->
+    <div></div>
+    <!-- <button class="classButton" id="remover">Remove Specfic Button</button> -->
+    </div>
+    </body>
+  <link rel="icon" href="Resources/favicon.svg?v=222" type="image/svg+xml">
+    <script>
+        // document.getElementById('remover').addEventListener('click', () => destroySpecific(document.getElementById('input3').value))
+        function waiter(){
+            alert('When adding links, DO NOT have "https://" in the input field.')
+        }
+        function defineBg(){
+            document.body.style.backgroundImage = `url(${localStorage.getItem('bccImageBackground')})`;
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundRepeat = "no-repeat"; 
+            document.body.style.backgroundAttachment = "fixed"; 
+            defineDefault('bccPrimaryTopHeader', '#32CD32')
+            defineDefault('bccHeaderBackgroundColor', '#FAEBD7')
+            defineDefault('bccPrimaryHeader', '#ffb5e0')
+            defineDefault('bccSecondaryHeader', '#DC143C')
+            defineDefault('bccPrimaryRect', '#e70d73')
+            defineDefault('bccImageBackground', 'Resources/oneshot.gif')
+            defineDefault('bccSecondaryRect', '#450423')
+            defineDefault('bccButtonPrimary', '#EEE8AA')
+            defineDefault('bccButtonSecondary', '#330432')
+            defineDefault('bccAmPmReadoutText', '#f0a61c')
+            defineDefault('bccAmPmReadoutBg', '#f5d4a8')
+            defineDefault('bccDatetimeReadoutText', '#c67bca')
+            defineDefault('bccDatetimeReadoutBg', '#791365')
+            setInterval(infinite, 5)
+            setTimeout(waiter, 500)
+        }
+        window.onload = defineBg
+    </script>
+        <div class="containerforbuttons" style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">
+            1st Period
+        </div>
+    <input type="text" name="Google Classroom 1st PD" class="inputClass" placeholder="Google Classroom Link 1st PD" id="input1l">
+    <div style="color:transparent">|</div>
+    <input type="text" name="1st PD Name" class="inputClass2" placeholder="1st PD Name" id="input1n">
+    <div></div>
+    <script>
+        function modClass1(){
+            alert('Reload Better Classlink\'s Main Page to see the effects.')
+            itemValue = 1
+            localStorage.setItem('%customButtons1', document.getElementById('input' + itemValue + 'n').value + '$' + document.getElementById('input' + itemValue + 'l').value)
+            // localStorage.setItem('asd', 'asdf')
+        }
+    </script>
+    <button class="classButton" onclick="modClass1()">Modify Class</button>
+    </div>
+    <div style="color: transparent">|</div>
+    <script>
+        function modClass2(){
+                        alert('Reload Better Classlink\'s Main Page to see the effects.')
+            itemValue = 2
+            localStorage.setItem('%customButtons' + itemValue, document.getElementById('input' + itemValue + 'n').value + '$' + document.getElementById('input' + itemValue + 'l').value)
+            // localStorage.setItem('asd', 'asdf')
+        }
+    </script>
+        <div class="containerforbuttons" style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">
+        2nd Period
+        </div>
+    <input type="text" name="Google Classroom 1st PD" class="inputClass" placeholder="Google Classroom Link 2nd PD" id="input2l">
+    <div style="color:transparent">|</div>
+    <input type="text" name="1st PD Name" class="inputClass2" placeholder="2nd PD Name" id="input2n">
+    <div></div>
+    <button class="classButton" onclick="modClass2()">Modify Class</button>
+    </div>
+    <div style="color: transparent">|</div>
+        <div class="containerforbuttons" style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">
+            3rd Period
+        </div>
+    <script>
+        function modClass3(){
+                        alert('Reload Better Classlink\'s Main Page to see the effects.')
+            itemValue = 3
+            localStorage.setItem('%customButtons' + itemValue, document.getElementById('input' + itemValue + 'n').value + '$' + document.getElementById('input' + itemValue + 'l').value)
+            // localStorage.setItem('asd', 'asdf')
+        }
+    </script>
+    <input type="text" name="Google Classroom 1st PD" class="inputClass" placeholder="Google Classroom Link 3rd PD" id="input3l">
+    <div style="color:transparent">|</div>
+    <input type="text" name="1st PD Name" class="inputClass2" placeholder="3rd PD Name" id="input3n">
+    <div></div>
+    <button class="classButton" onclick="modClass3()">Modify Class</button>
+    </div>
+    <div style="color: transparent">|</div>
+    <script>
+        function modClass4(){
+                        alert('Reload Better Classlink\'s Main Page to see the effects.')
+            itemValue = 4
+            localStorage.setItem('%customButtons' + itemValue, document.getElementById('input' + itemValue + 'n').value + '$' + document.getElementById('input' + itemValue + 'l').value)
+            // localStorage.setItem('asd', 'asdf')
+        }
+    </script>
+        <div class="containerforbuttons"style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">
+            4th Period
+        </div>
+    <input type="text" name="Google Classroom 1st PD" class="inputClass" placeholder="Google Classroom Link 4th PD" id="input4l">
+    <div style="color:transparent">|</div>
+    <input type="text" name="1st PD Name" class="inputClass2" placeholder="4th PD Name" id="input4n">
+    <div></div>
+    <button class="classButton" onclick="modClass4()">Modify Class</button>
+    </div>
+    <div style="color: transparent">|</div>
+    <script>
+        function modClass5(){
+                        alert('Reload Better Classlink\'s Main Page to see the effects.')
+            itemValue = 5
+            localStorage.setItem('%customButtons' + itemValue, document.getElementById('input' + itemValue + 'n').value + '$' + document.getElementById('input' + itemValue + 'l').value)
+            // localStorage.setItem('asd', 'asdf')
+        }
+    </script>
+        <div class="containerforbuttons"style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">
+            5th Period
+        </div>
+    <input type="text" name="Google Classroom 1st PD" class="inputClass" placeholder="Google Classroom Link 5th PD" id="input5l">
+    <div style="color:transparent">|</div>
+    <input type="text" name="1st PD Name" class="inputClass2" placeholder="5th PD Name" id="input5n">
+    <div></div>
+    <button class="classButton" onclick="modClass5()">Modify Class</button>
+    </div>
+    <div style="color: transparent" style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">|</div>
+    <script>
+        function modClass6(){
+                        alert('Reload Better Classlink\'s Main Page to see the effects.')
+            itemValue = 6
+            localStorage.setItem('%customButtons' + itemValue, document.getElementById('input' + itemValue + 'n').value + '$' + document.getElementById('input' + itemValue + 'l').value)
+            // localStorage.setItem('asd', 'asdf')
+        }
+    </script>
+        <div class="containerforbuttons" style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">
+            6th Period
+        </div>
+    <input type="text" name="Google Classroom 1st PD" class="inputClass" placeholder="Google Classroom Link 6th PD" id="input6l">
+    <div style="color:transparent">|</div>
+    <input type="text" name="1st PD Name" class="inputClass2" placeholder="6th PD Name" id="input6n">
+    <div></div>
+    <button class="classButton" onclick="modClass6()">Modify Class</button>
+    </div>
+    <div style="color: transparent" style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">|</div>
+    <script>
+        function modClass7(){
+                        alert('Reload Better Classlink\'s Main Page to see the effects.')
+            itemValue = 7
+            localStorage.setItem('%customButtons' + itemValue, document.getElementById('input' + itemValue + 'n').value + '$' + document.getElementById('input' + itemValue + 'l').value)
+            // localStorage.setItem('asd', 'asdf')
+        }
+    </script>
+        <div class="containerforbuttons" style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">
+            7th Period
+        </div>
+    <input type="text" name="Google Classroom 1st PD" class="inputClass" placeholder="Google Classroom Link 7th PD" id="input7l">
+    <div style="color:transparent">|</div>
+    <input type="text" name="1st PD Name" class="inputClass2" placeholder="7th PD Name" id="input7n">
+    <div></div>
+    <button class="classButton" onclick="modClass7()">Modify Class</button>
+    </div>
+    <div style="color: transparent">|</div>
+    <script>
+        function modClass8(){
+            itemValue = 8
+                        alert('Reload Better Classlink\'s Main Page to see the effects.')
+            localStorage.setItem('%customButtons' + itemValue, document.getElementById('input' + itemValue + 'n').value + '$' + document.getElementById('input' + itemValue + 'l').value)
+            // localStorage.setItem('asd', 'asdf')
+        }
+    </script>
+        <div class="containerforbuttons"style="background-color: palegoldenrod; border: 25px solid palegoldenrod;">
+            8th Period
+        </div>
+    <input type="text" name="Google Classroom 1st PD" class="inputClass" placeholder="Google Classroom Link 8th PD" id="input8l">
+    <div style="color:transparent">|</div>
+    <input type="text" name="1st PD Name" class="inputClass2" placeholder="8th PD Name" id="input8n">
+    <div></div>
+    <button class="classButton"  onclick="modClass8()">Modify Class</button>
+    </div>
+    <div style="color: transparent">|</div>
+</div>
+</html>
