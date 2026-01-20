@@ -141,7 +141,7 @@ function getDayMonthYear(){
             if(localStorage.getItem('bccSliderSpeed') == `null`){
                 localStorage.setItem('bccSliderSpeed', 50)
             }
-            defineDefault('bccSliderSpeed', 100)
+            defineDefault('bccSliderSpeed', '100')
             defineDefault('bccPrimaryTopHeader', '#000000')
             defineDefault('bccHeaderBackgroundColor', '#FFFFFF')
             defineDefault('bccPrimaryHeader', '#000000')
@@ -273,4 +273,5 @@ function getDayMonthYear(){
         }
 
     }
+
 
