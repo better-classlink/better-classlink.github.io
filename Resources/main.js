@@ -120,7 +120,9 @@ function getDayMonthYear(){
             document.getElementById(item).value = defaultType
             }
             else{
+                if(item != 'bccSliderSpeed'){
                 document.getElementById(item).value = localStorage.getItem(item)
+            }
             }
             console.log(`Item type: ${document.getElementById(item).value}`)
             if(document.getElementById(item).type == 'color'){
@@ -273,5 +275,6 @@ function getDayMonthYear(){
         }
 
     }
+
 
 
