@@ -138,6 +138,9 @@ function getDayMonthYear(){
     document.documentElement.style.setProperty(`--${item}`, localStorage.getItem(item))
     }   
         async function runOnLoad(){
+            if(localStorage.getItem('bccSliderSpeed') == `null`){
+                localStorage.setItem('bccSliderSpeed', 50)
+            }
             defineDefault('bccPrimaryTopHeader', '#000000')
             defineDefault('bccHeaderBackgroundColor', '#FFFFFF')
             defineDefault('bccPrimaryHeader', '#000000')
@@ -169,9 +172,6 @@ function getDayMonthYear(){
             futureSettings = document.getElementById('settingsButton')
             // document.getElementById('fake-modal').remove()
             gurtYo = 0
-            if(localStorage.getItem('bccSliderSpeed') == `null`){
-                localStorage.setItem('bccSliderSpeed', 50)
-            }
             for(let i=1;i < 9; i++){
                 if(localStorage.getItem('%customButtons' + i) != null){
                 let buttonInUse = document.getElementById(i + 'Pdbutton')
@@ -270,4 +270,5 @@ function getDayMonthYear(){
                 modalStatus = true
             }
         }
+
     }
