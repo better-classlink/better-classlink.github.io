@@ -153,9 +153,9 @@
         top: 100px;
     }
     .dateTimeZone{
-        width: 500px;
+        width: 33.3333vw;
         font-family: 'kamiiFonts', sans-serif;
-        font-size: 46px;
+        font-size: 3vw;
         position: absolute;
         left: 67vw;
         top: 100px;
@@ -164,6 +164,7 @@
         font-family: 'kamiiFonts', sans-serif;
         font-size: 65px;
         font-weight: bolder;
+        width: 23.3333vw;
         position: absolute;
     }
     .funAddition{

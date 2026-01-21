@@ -1,3 +1,4 @@
+let userState = false
 function nthIndexOf(str, char, n) {
     let index = -1;
     while (n-- > 0) {
@@ -57,6 +58,7 @@ function getDayMonthYear(){
     return `Today is ${month}/${day}/${year}.`
 }
         function infinite() {
+            // console.log(userState)
             // console.log(`Viewport width: ${window.innerWidth}, Viewport height: ${window.innerHeight}`)
             document.getElementById('bccstartup').textContent = 'Startup Speed: ' + localStorage.getItem('bccSliderSpeed')
             localStorage.setItem('bccSliderSpeed',document.getElementById('settingsRange').value)
@@ -139,6 +141,13 @@ function getDayMonthYear(){
     document.documentElement.style.setProperty(`--${item}`, localStorage.getItem(item))
     }   
         async function runOnLoad(){
+            pageInput = document.getElementById('inputgoogle')
+            pageInput.addEventListener('focus', function (){
+                userState = true
+            })
+            pageInput.addEventListener('blur', function (){
+                userState = false
+            })
             if(localStorage.getItem('bccSliderSpeed') == null){
                 localStorage.setItem('bccSliderSpeed', 55)
             }
@@ -162,14 +171,17 @@ function getDayMonthYear(){
             launch = false
             document.addEventListener('keydown', function(event){
                 if(event.key.toLowerCase() === 'p'){
+                    if(userState == false){
                     toggleModal()
                 }
-                if(event.key === 'Escape'){
-                    console.error('Escape')
-                    if(modalStatus = false){
-                        toggleModal()
-                    }
-                }
+            }
+                // if(event.key === 'Escape'){
+                //     console.log(modalStatus)
+                //     // console.error('Escape')
+                //     if(modalStatus = false){
+                //         toggleModal()
+                //     }
+                // }
             })
             modalStatus = true
             futureChild = document.getElementById('fake-modal')
