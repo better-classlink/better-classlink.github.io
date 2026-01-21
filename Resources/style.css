@@ -200,7 +200,7 @@
           transition: background-color 0.3s ease; /* Smooth transition on hover */
           margin-top: 5px;
           margin-left: 5px;
-          z-index: 250;
+          z-index: 5;
     }
     .classButtonAlign2{
         position: relative;
@@ -216,7 +216,7 @@
           transition: background-color 0.3s ease; /* Smooth transition on hover */
           margin-top: 5px;
           margin-left: 5px;
-          z-index: 250;
+          z-index: 5;
     }
 .INVISIBLE {
     font-size: 0;
@@ -283,3 +283,4 @@
     flex-wrap: wrap;
     gap: 10px;
 }
+
