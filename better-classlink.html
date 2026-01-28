@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html id="html" style="scrollbar-width: none;">
     <title>
-        Better Classlink v2.06
+        Better Classlink v2.11
     </title>
     <!-- MODAL STUFF  -->
      <head>
@@ -103,8 +103,14 @@
     </div>
         <script>
             function openLink(link){
+                console.log(link.slice(0, 8))
+                if(link.slice(0,8) == 'https://'){
+                    window.open(link)
+            }
+            else{
                 window.open('https://'.concat(link))
             }
+        }
         </script>
         <script src="Resources/main.js" defer>
         </script>
@@ -155,10 +161,13 @@
         <div class="containForLogo" id="container3">    
             <div class="newLogo" id="logo!">
             a Kamii373 App.
-            v2.06 (Online Ver.)
+            v2.11 (Online Ver.)
         </div>
         <img src="Resources/favicon.svg" width="40px" height="40px" style="border: 5px solid var(--bccPrimaryHeader); position: fixed; bottom: 0;left: 0;border-radius: 5px ;background-color: var(--bccHeaderBackground);">
+        <!-- <div style="width: 40px;height: 40px;border: 5px solid var(--bccPrimaryHeader);position: fixed;bottom: 0;left: 0;border-radius: 5px;background-color: var(--bccHeaderBackground);"></div> -->
     <div style="color:var(--bccSecondaryHeader); font-size: 28px;">Press [P] to open settings.</div>
+    <div style="height: 5px;"></div>
+    <div style="color:var(--bccSecondaryHeader); font-size: 20px;">Please use Ctrl+ and Ctrl- to zoom and align.</div>
     </div>
     </div>
     <!-- custom buttons zone -->
@@ -173,13 +182,12 @@
             if you read this you're cool
         </div>
         <div class="divider">————————</div>
-        <div class="dateTimeZoneUpdater" style="color: var(--bccDatetimeReadoutText);background-color: var(--bccDatetimeReadoutBg); border-radius: 2px; border: 5px solid black; padding-left: 5px;font-size: 70px;left: 5px;position: relative;width: 29.33vw;" id="wannacry">
+        <div class="dateTimeZoneUpdater" style="color: var(--bccDatetimeReadoutText);background-color: var(--bccDatetimeReadoutBg); border-radius: 2px; border: 5px solid black; padding-left: 5px;font-size: 70px;left: 5px;position: relative;font-size:xx-large" id="wannacry">
             DateTime will go here.
         </div>
     </div>
     </body>
 
     </html>
-
 
 
