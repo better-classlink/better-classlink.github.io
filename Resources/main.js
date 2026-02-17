@@ -1,12 +1,16 @@
 let userState = false
-function nthIndexOf(str, char, n) {
-    let index = -1;
-    while (n-- > 0) {
-        index = str.indexOf(char, index + 1);
-        if (index === -1) break;
-    }
-    return index;
-}   function getCurrentTime(){
+function preloadImage(url) {
+  const img = new Image();
+  img.src = url;
+}
+    function nthIndexOf(str, char, n) {
+        let index = -1;
+        while (n-- > 0) {
+            index = str.indexOf(char, index + 1);
+            if (index === -1) break;
+        }
+        return index;
+    }   function getCurrentTime(){
     now = new Date;
     hrs = now.getHours();
     mins = now.getMinutes()
@@ -58,6 +62,8 @@ function getDayMonthYear(){
     return `Today is ${month}/${day}/${year}.`
 }
         function infinite() {
+            // console.log(document.getElementById('newBgRect').style.height)
+            // console.log(localStorage.getItem('bccSliderSpeed'))
             // console.log(userState)
             // console.log(`Viewport width: ${window.innerWidth}, Viewport height: ${window.innerHeight}`)
             document.getElementById('bccstartup').textContent = 'Startup Speed: ' + localStorage.getItem('bccSliderSpeed')
@@ -138,9 +144,14 @@ function getDayMonthYear(){
                 localStorage.setItem(this.id, this.value)
             })
         }
+    if(item.includes('Button')){
     document.documentElement.style.setProperty(`--${item}`, localStorage.getItem(item))
-    }   
+    }
+    else{
+    document.documentElement.style.setProperty(`--${item}`, localStorage.getItem(item))
+    }   }
         async function runOnLoad(){
+            preloadImage(localStorage.getItem('bccImageBackground'))
             pageInput = document.getElementById('inputgoogle')
             pageInput.addEventListener('focus', function (){
                 userState = true
@@ -168,6 +179,7 @@ function getDayMonthYear(){
             if(localStorage.getItem('%customButtons') == null){
                 localStorage.setItem('%customButtons', "")
             }
+            let patience = false
             defineDefault('bccPrimaryTopHeader', '#000000')
             defineDefault('bccHeaderBackgroundColor', '#FFFFFF')
             defineDefault('bccPrimaryHeader', '#000000')
@@ -183,18 +195,37 @@ function getDayMonthYear(){
             defineDefault('bccDatetimeReadoutBg', '#FFFFFF')
             document.getElementById('settingsRange').value = localStorage.getItem('bccSliderSpeed')
             launch = false
-            document.addEventListener('keydown', function(event){
+            let startHeight = 50
+            document.addEventListener('visibilitychange', async function(){
+                if(document.visibilityState === 'visible'){
+                if(patience){
+                patience = false
+                let divider = 1
+                document.getElementById('newBgRect').style.height = innerHeight / divider + 'px'
+                await wait(400 - speed)
+                for(let i = 11;i > -41;i -= 1){
+                // console.log('ball')
+                await wait(100 - speed)
+                document.getElementById('newBgRect').style.height = innerHeight / divider + 'px'
+                divider += 0.2
+            }
+            patience = true
+            document.getElementById('newBgRect').style.height = 86.071 + 'px'
+        }
+                }
+            }
+        )
+            document.addEventListener('keydown', async function(event){
                 if(event.key.toLowerCase() === 'p'){
                     if(userState == false){
+                    await wait(1)
                     toggleModal()
                 }
             }
-                // if(event.key === 'Escape'){
-                //     console.log(modalStatus)
-                //     // console.error('Escape')
-                //     if(modalStatus = false){
-                //         toggleModal()
-                //     }
+                //             if(event.key.toLowerCase() === 'k'){
+                //     console.log('ball')
+                    // document.getElementById('newBgRect').style.height = startHeight + 'px'
+                    // startHeight += 25
                 // }
             })
             modalStatus = true
@@ -215,6 +246,7 @@ function getDayMonthYear(){
         }
             let logo = "Welcome to Better Classlink!"
             let currentType = ""
+            speed = localStorage.getItem('bccSliderSpeed')
             document.getElementById('bgRect').style.display = 'none'
             document.getElementById('dateTime').style.display = 'none'
             document.getElementById('bgRect2').style.display = 'none'
@@ -222,13 +254,22 @@ function getDayMonthYear(){
             document.getElementById('giantButtonCont').style.display = 'none'
             document.getElementById('buttonzone').style.display = 'none'
             for(let i = 0; i < logo.length; i++){
+            document.getElementById('newBgRect').style.height = innerHeight + 'px'
                 currentType = currentType.concat(logo.charAt(i))
                 document.getElementById('headthing').textContent = currentType.concat('_')
-                await wait(110 - localStorage.getItem('bccSliderSpeed'));
+                await wait(110 - speed);
             }
             document.getElementById('headthing').textContent = logo
             defineBg()
-            await wait(1100 - localStorage.getItem('bccSliderSpeed') * 10)
+            let divider = 1
+            await wait(300 - speed)
+            for(let i = 11;i > -41;i -= 1){
+                console.log('ball')
+                await wait(100 - speed)
+                document.getElementById('newBgRect').style.height = innerHeight / divider + 'px'
+                divider += 0.2
+            }
+            document.getElementById('newBgRect').style.height = 86.071 + 'px'
             launch = true
             document.getElementById('bgRect').style.display = 'block'
             document.getElementById('bgRect2').style.display = 'block'
@@ -284,6 +325,7 @@ function getDayMonthYear(){
                 appendingDiv.appendChild(finalButton)
                 document.getElementById('newBgRect').appendChild(futureChild)
                 // document.getElementById('container3').appendChild(futureSettings)
+                patience = true 
         }
         window.onload = runOnLoad;
         function toggleModal(){

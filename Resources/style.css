@@ -176,24 +176,26 @@
     }
     .classButton{
         font-size: 1rem;
-        background-color: var(--bccButtonPrimary);
+        background-color: transparent;
          color: var(--bccButtonSecondary);
           padding: 10px 20px; 
-         border: none;
+         border: 3px solid black;
          border-radius: 5px; /* Rounded corners */
         cursor: pointer; /* Changes cursor to a hand on hover */
           font-size: 16px; /* Text size */
           font-family: 'kamiiFonts'; /* Font style */
           transition: background-color 0.3s ease; /* Smooth transition on hover */
           margin-top: 12px;
+          backdrop-filter: blur(10px);
+          box-shadow: 3px 3px #00000099
     }
     .classButtonAlign{
         position: relative;
         font-size: 1rem;
-          background-color: var(--bccButtonPrimary); /* Green background */
+          background-color: transparent; /* Green background */
           color: var(--bccButtonSecondary); /* White text */
           padding: 10px 20px; /* Spacing inside the button */
-          border: none; /* No border */
+          border: 3px solid black; /* No border */
           border-radius: 5px; /* Rounded corners */
           cursor: pointer; /* Changes cursor to a hand on hover */
           font-size: 16px; /* Text size */
@@ -202,14 +204,16 @@
           margin-top: 5px;
           margin-left: 5px;
           z-index: 5;
+          backdrop-filter: blur(10px);
+          box-shadow: 3px 3px #00000099
     }
     .classButtonAlign2{
         position: relative;
         font-size: 1rem;
-        background-color: var(--bccButtonSecondary); /* Green background */
+        background-color: transparent; /* Green background */
          color: var(--bccButtonPrimary); /* White text */
           padding: 10px 20px; /* Spacing inside the button */
-         border: none; /* No border */
+         border: 3px solid black; /* No border */
          border-radius: 5px; /* Rounded corners */
         cursor: pointer; /* Changes cursor to a hand on hover */
           font-size: 16px; /* Text size */
@@ -218,6 +222,8 @@
           margin-top: 5px;
           margin-left: 5px;
           z-index: 5;
+          backdrop-filter: blur(10px);
+          box-shadow: 3px 3px #00000099
     }
 .INVISIBLE {
     font-size: 0;
@@ -232,15 +238,17 @@
     }
      .classButton2{
         font-size: 1rem;
-        background-color: var(--bccButtonSecondary); /* Green background */
+        background-color: transparent; /* Green background */
          color: var(--bccButtonPrimary); /* White text */
           padding: 10px 20px; /* Spacing inside the button */
-         border: none; /* No border */
+         border: 3px solid black; /* No border */
          border-radius: 5px; /* Rounded corners */
         cursor: pointer; /* Changes cursor to a hand on hover */
           font-size: 16px; /* Text size */
           font-family: 'kamiiFonts'; /* Font style */
           transition: background-color 0.3s ease; /* Smooth transition on hover */
+          backdrop-filter: blur(10px);
+          box-shadow: 3px 3px #00000099
     }
     .inputClass{
         background-color: var(--bccButtonPrimary); /* Green background */
@@ -252,6 +260,9 @@
           font-size: 16px; /* Text size */
           font-family: 'kamiiFonts'; /* Font style */
           transition: background-color 0.3s ease; /* Smooth transition on hover */
+    }
+    .inputClass::placeholder{
+        color: var(--bccButtonSecondary)
     }
     .inputClass2{
         background-color: var(--bccButtonSecondary); /* Green background */
