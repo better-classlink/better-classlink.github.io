@@ -98,7 +98,23 @@ function getDayMonthYear(){
             document.body.style.backgroundAttachment = "fixed"; 
         }
 
-
+        function applyThemeFast(){
+            defineDefault('bccPrimaryTopHeader', '#000000')
+            defineDefault('bccHeaderBackgroundColor', '#FFFFFF')
+            defineDefault('bccPrimaryHeader', '#000000')
+            defineDefault('bccSecondaryHeader', '#000000')
+            defineDefault('bccPrimaryRect', '#FFFFFF')
+            defineDefault('bccImageBackground', 'Resources/defaultBg.png')
+            defineDefault('bccSecondaryRect', '#FFFFFF')
+            defineDefault('bccButtonPrimary', '#FFFFFF')
+            defineDefault('bccButtonSecondary', '#000000')
+            defineDefault('bccAmPmReadoutText', '#000000')
+            defineDefault('bccAmPmReadoutBg', '#FFFFFF')
+            defineDefault('bccDatetimeReadoutText', '#000000')
+            defineDefault('bccDatetimeReadoutBg', '#FFFFFF')
+            defineDefault('bccImageBackground', 'Resources/defaultBg.png')
+            defineBg()
+        }
         // asdfasghd
 
 
@@ -150,7 +166,10 @@ function getDayMonthYear(){
     else{
     document.documentElement.style.setProperty(`--${item}`, localStorage.getItem(item))
     }   }
+
         async function runOnLoad(){
+            defineDefault('bccImageBackground', 'Resources/defaultBg.png')
+            defineBg()
             preloadImage(localStorage.getItem('bccImageBackground'))
             pageInput = document.getElementById('inputgoogle')
             pageInput.addEventListener('focus', function (){
@@ -197,6 +216,7 @@ function getDayMonthYear(){
             launch = false
             let startHeight = 50
             document.addEventListener('visibilitychange', async function(){
+                document.getElementById('headthing').textContent = 'Welcome Back to Better Classlink!'
                 if(document.visibilityState === 'visible'){
                 if(patience){
                 patience = false
@@ -260,7 +280,6 @@ function getDayMonthYear(){
                 await wait(110 - speed);
             }
             document.getElementById('headthing').textContent = logo
-            defineBg()
             let divider = 1
             await wait(300 - speed)
             for(let i = 11;i > -41;i -= 1){
@@ -285,6 +304,7 @@ function getDayMonthYear(){
                 let impt = 0
                 let impt2 = 0
             setInterval(infinite, 2)
+            var buttonNames = []
                 for(let i = 0; i < interationCt; i++){
             await wait(110 - localStorage.getItem('bccSliderSpeed'))
                     impt = nthIndexOf(bigObj, '$', i + 1) + 1
@@ -296,7 +316,7 @@ function getDayMonthYear(){
                     // console.log('Link: ' + bigObj.substring(impt, impt2))
                     let link = bigObj.substring(impt, impt2)
                     let newButton = document.createElement('button')
-                    newButton.textContent = name
+                    newButton.textContent = '-'.repeat(name.length)
                     gurtYo = i + 1
                     if(gurtYo % 2 == 1){
                     newButton.classList.add('classButtonAlign')
@@ -307,9 +327,42 @@ function getDayMonthYear(){
                     newButton.style.paddingBlock = '5px'
                     newButton.addEventListener('click', () => openLink(link))
                     appendingDiv = document.getElementById('appendingDiv')
+                    newButton.id = 'customButton' + i
+                    newButton.title = 'Click this to go to ' + name
+                    newButton.dataset.nameInfo = name
                     appendingDiv.appendChild(newButton)
+                    buttonCt = gurtYo
+                    // console.log(buttonNames)
+                    buttonNames.push(name)
+                }
+                var finalIndex = buttonCt
+            }
+            console.log(buttonNames)
+            const longestName = buttonNames.reduce((a, b) => 
+            b.length > a.length ? b : a
+            );
+            console.log(longestName)
+            namerIterationCt = longestName.length
+            console.log('rah pssh')
+            for(let i = 0;i < namerIterationCt + 1;i++){
+                // console.log(i)
+                await wait(120 - speed)
+                // console.log(namerIterationCt)
+                for(let ii = 0;ii<finalIndex;ii++){
+                    // console.log(ii)
+                    currentButton = document.getElementById('customButton' + ii)
+                    // console.log('customButton' + ii)
+                    currentText = currentButton.dataset.nameInfo.substring(0, i)
+                    textLength = currentButton.dataset.nameInfo.length
+                    substringLength = currentText.length
+                    amountCharsNeeded = textLength - substringLength
+                    endingChars = '-'.repeat(amountCharsNeeded)
+                    console.log(endingChars)
+                    completedText = currentText + endingChars
+                    currentButton.textContent = completedText
                 }
             }
+            // console.log('hi')
             await wait(110 - localStorage.getItem('bccSliderSpeed'))
                 gurtYo += 1
                 finalButton = document.createElement('button')
@@ -326,6 +379,7 @@ function getDayMonthYear(){
                 document.getElementById('newBgRect').appendChild(futureChild)
                 // document.getElementById('container3').appendChild(futureSettings)
                 patience = true 
+                // DRAWING BUTTON TEXT.
         }
         window.onload = runOnLoad;
         function toggleModal(){

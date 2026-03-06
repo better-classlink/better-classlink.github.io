@@ -6,8 +6,13 @@
         let buttonName = ''
         let buttonLink = ''
         function defineDefault(item){
+        if(item != 'bccHeaderBackgroundColor'){
             document.documentElement.style.setProperty(`--${item}`, localStorage.getItem(item))
         }
+        else{
+            document.documentElement.style.setProperty('--bccHeaderBackground', '#FFFFFF')
+        }
+    }
         function nextFunc(){
             console.log(progress)
             buttonLink = document.getElementById('input1').value
@@ -20,7 +25,8 @@
     </script>
 <style>
     h1{
-        color: var(--bccPrimaryHeader)
+        color: var(--bccPrimaryHeader);
+        border: 5px solid black !important;
     }
     .inputClass{
         background-color: var(--bccButtonPrimary); /* Green background */
@@ -76,7 +82,7 @@
         position: relative;
         top: -20px;
         color: var(--bccPrimaryHeader) !important;
-        border: 0px !important;
+        border: 5px solid black;
         background-color: var(--bccHeaderBackgroundColor) !important;
         border-radius: 4px;
     }
@@ -110,7 +116,7 @@
         </h1>
             <div style="height: 15px;"></div>
     <div style="padding-bottom: 50px;">
-        <div class="containerforbuttons" style="color:var(--bccSecondaryHeader);font-size: 42px; border: 0px;" id="customButtons">Create Custom Buttons
+        <div class="containerforbuttons" style="font-size: 42px;" id="customButtons">Create Custom Buttons
     </div>
     <script>
         function customButtonCreator(){
@@ -277,7 +283,7 @@
     <div></div>
     </div>
 <head>
-<title>Class Changing Tool</title>
+<title>BCC Class Changing Tool</title>
 </head>
     </body>
   <link rel="icon" href="Resources/favicon.svg?v=222" type="image/svg+xml">
@@ -347,6 +353,7 @@
             combiner = updatedString + secondString
             // console.log(combiner)
             localStorage.setItem('%customButtons', combiner)
+            console.log(updatedString, 'X-X', secondString, 'X-X', combiner)
             alert('Reload the main page to see the effects!')
         }
         }

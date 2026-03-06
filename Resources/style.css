@@ -3,12 +3,18 @@
         height: 100px;
         margin: 0;
         box-sizing: border-box;
-        background-color: var(--bccHeaderBackgroundColor);
+        background-color: var(--bccHeaderBackgroundColor + 'D9');
         border: 5px solid black;
         z-index: 25;
         position: absolute;
         top: 0;
         left: 0;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.03);
+/* border-radius: 16px; */
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
         /* border-radius: 5px; */
     }
     .headthing{
@@ -180,14 +186,20 @@
          color: var(--bccButtonSecondary);
           padding: 10px 20px; 
          border: 3px solid black;
-         border-radius: 5px; /* Rounded corners */
+         border-radius: 2px; /* Rounded corners */
         cursor: pointer; /* Changes cursor to a hand on hover */
           font-size: 16px; /* Text size */
           font-family: 'kamiiFonts'; /* Font style */
           transition: background-color 0.3s ease; /* Smooth transition on hover */
           margin-top: 12px;
           backdrop-filter: blur(10px);
-          box-shadow: 3px 3px #00000099
+          box-shadow: 3px 3px #00000099;
+        /* From https://css.glass */
+background: rgba(255, 255, 255, 0.03);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
     }
     .classButtonAlign{
         position: relative;
@@ -205,7 +217,13 @@
           margin-left: 5px;
           z-index: 5;
           backdrop-filter: blur(10px);
-          box-shadow: 3px 3px #00000099
+          box-shadow: 3px 3px #00000099;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.03);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
     }
     .classButtonAlign2{
         position: relative;
@@ -223,7 +241,13 @@
           margin-left: 5px;
           z-index: 5;
           backdrop-filter: blur(10px);
-          box-shadow: 3px 3px #00000099
+          box-shadow: 3px 3px #00000099;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.03);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
     }
 .INVISIBLE {
     font-size: 0;
@@ -248,14 +272,20 @@
           font-family: 'kamiiFonts'; /* Font style */
           transition: background-color 0.3s ease; /* Smooth transition on hover */
           backdrop-filter: blur(10px);
-          box-shadow: 3px 3px #00000099
+          box-shadow: 3px 3px #00000099;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.03);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
     }
     .inputClass{
         background-color: var(--bccButtonPrimary); /* Green background */
          color: var(--bccButtonSecondary); /* White text */
           padding: 10px 20px; /* Spacing inside the button */
          border: 5x; /* No border */
-         border-radius: 5px; /* Rounded corners */
+         border-radius: 16px; /* Rounded corners */
         cursor: pointer; /* Changes cursor to a hand on hover */
           font-size: 16px; /* Text size */
           font-family: 'kamiiFonts'; /* Font style */
@@ -289,6 +319,12 @@
 .classButtonAlign,
 .classButtonAlign2 {
     margin: 0;
+}
+.classButton,
+.classButton2,
+.classButtonAlign,
+.classButtonAlign2{
+    border-radius: 9px;
 }
 #appendingDiv {
     display: flex;
